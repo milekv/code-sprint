@@ -64,6 +64,18 @@ button:hover {
     border-radius: 8px;
 }
 
+#ranking table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#ranking th, #ranking td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #fff;
+}
+
 footer {
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
@@ -72,4 +84,18 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
+}
+
+/* Animacje */
+.challenge-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button {
+    transition: all 0.3s ease;
 }
