@@ -3,70 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeSprint - Wyzwania Programistyczne</title>
-    <link rel="stylesheet" href="style.css">
+    <title>CodeSprint</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1><a href="index.html" class="logo">CodeSprint</a></h1>
-        <p>Wybierz język i poziom trudności, aby rozpocząć wyzwanie!</p>
     </header>
 
     <main>
-        <section id="selection">
-            <div>
-                <label for="language">Wybierz język programowania:</label>
-                <select id="language">
-                    <option value="javascript">JavaScript</option>
-                    <option value="python">Python</option>
-                    <option value="java">Java</option>
-                </select>
-            </div>
+        <div id="selection">
+            <select id="language-select">
+                <option value="python">Python</option>
+                <option value="javascript">JavaScript</option>
+                <!-- Możesz dodać więcej języków -->
+            </select>
 
-            <div>
-                <label for="difficulty">Wybierz poziom trudności:</label>
-                <select id="difficulty">
-                    <option value="junior">Junior</option>
-                    <option value="mid">Mid</option>
-                    <option value="senior">Senior</option>
-                </select>
-            </div>
+            <select id="level-select">
+                <option value="junior">Junior</option>
+                <option value="mid">Mid</option>
+                <option value="senior">Senior</option>
+            </select>
 
-            <button onclick="startChallenge()">Rozpocznij wyzwanie</button>
-        </section>
+            <button id="start-challenge">Rozpocznij wyzwanie</button>
+        </div>
 
-        <section id="challenge" style="display:none;">
-            <h2>Wyzwanie: <span id="challengeTitle"></span></h2>
-            <div id="editorContainer">
-                <div id="editor"></div>
-            </div>
-            <button onclick="runCode()">Uruchom kod</button>
-            <pre id="output"></pre>
-        </section>
-        <section id="challenge">
-    <h2 id="challenge-title">Wybierz zadanie</h2>
-    <p id="challenge-description">Opis zadania pojawi się tutaj.</p>
-</section>
-
-
-        <section id="ranking">
-            <h2>Ranking</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Pozycja</th>
-                        <th>Użytkownik</th>
-                        <th>Punkty</th>
-                    </tr>
-                </thead>
-                <tbody id="rankingTable">
-                    <!-- Dynamically generated content -->
-                </tbody>
-            </table>
-        </section>
+        <div id="challenge">
+            <h2 id="challenge-title">Wybierz zadanie</h2>
+            <p id="challenge-description">Wybierz zadanie, aby zacząć rozwiązywać.</p>
+            <textarea id="code-editor" placeholder="Wpisz swój kod tutaj..."></textarea>
+            <button id="run-challenge">Uruchom kod</button>
+            <div id="result"></div>
+        </div>
     </main>
 
     <footer>
