@@ -1,30 +1,45 @@
-// Inicjalizacja edytora Ace
-const editor1 = ace.edit("editor-1");
-editor1.setTheme("ace/theme/monokai");
-editor1.getSession().setMode("ace/mode/javascript");
+// Inicjalizacja edytora kodu (użyjemy Ace Editor)
+const editor = ace.edit("editor");
+editor.setTheme("ace/theme/monokai");
+editor.getSession().setMode("ace/mode/javascript"); // Domyślnie ustawiamy na JavaScript
 
-const editor2 = ace.edit("editor-2");
-editor2.setTheme("ace/theme/monokai");
-editor2.getSession().setMode("ace/mode/javascript");
+// Funkcja, która uruchamia odpowiednie wyzwanie
+function startChallenge() {
+    const language = document.getElementById("language").value;
+    const difficulty = document.getElementById("difficulty").value;
 
-// Funkcja do uruchamiania kodu
-function runCode(challengeId) {
-    let userCode = '';
-    let outputElement = document.getElementById('output-' + challengeId);
-    
-    if (challengeId === 1) {
-        userCode = editor1.getValue();
-    } else if (challengeId === 2) {
-        userCode = editor2.getValue();
-    }
-    
-    try {
-        const result = eval(userCode);
-        outputElement.textContent = 'Wynik: ' + result;
-        outputElement.style.color = 'green';
-    } catch (error) {
-        outputElement.textContent = 'Błąd: ' + error;
-        outputElement.style.color = 'red';
+    // Zmieniamy wygląd i treść w zależności od wyboru
+    document.getElementById("challengeTitle").innerText = `${difficulty.charAt(0).toUpperCase() + difficulty.slice(1)} Challenge`;
+
+    // Ukrycie sekcji wyboru i wyświetlenie sekcji z wyzwaniem
+    document.getElementById("selection").style.display = "none";
+    document.getElementById("challenge").style.display = "block";
+
+    // Zmiana trybu edytora w zależności od języka
+    switch (language) {
+        case "javascript":
+            editor.getSession().setMode("ace/mode/javascript");
+            break;
+        case "python":
+            editor.getSession().setMode("ace/mode/python");
+            break;
+        case "java":
+            editor.getSession().setMode("ace/mode/java");
+            break;
     }
 }
 
+// Funkcja do uruchomienia kodu użytkownika (backendowa część nie została tu uwzględniona)
+function runCode() {
+    const userCode = editor.getValue();
+    const output = document.getElementById("output");
+
+    try {
+        const result = eval(userCode);  // Uwaga: eval jest niebezpieczny w produkcji, użyj w backendzie!
+        output.textContent = 'Wynik: ' + result;
+        output.style.color = 'green';
+    } catch (error) {
+        output.textContent = 'Błąd: ' + error;
+        output.style.color = 'red';
+    }
+}
