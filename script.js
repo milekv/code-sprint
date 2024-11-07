@@ -3,6 +3,22 @@ const editor = ace.edit("editor");
 editor.setTheme("ace/theme/monokai");
 editor.getSession().setMode("ace/mode/javascript"); // Domyślnie ustawiamy na JavaScript
 
+// Obiekty wyzwań
+const challenges = {
+    javascript: {
+        junior: [
+            { title: "FizzBuzz", description: "Wypisz liczby od 1 do 100." },
+            { title: "Palindrome", description: "Sprawdź, czy ciąg jest palindromem." }
+        ],
+        mid: [
+            { title: "Sum of Squares", description: "Oblicz sumę kwadratów liczb." }
+        ],
+        senior: [
+            { title: "Prime Numbers", description: "Znajdź liczby pierwsze do 1000." }
+        ]
+    }
+};
+
 // Funkcja, która uruchamia odpowiednie wyzwanie
 function startChallenge() {
     const language = document.getElementById("language").value;
@@ -10,6 +26,9 @@ function startChallenge() {
 
     // Zmieniamy wygląd i treść w zależności od wyboru
     document.getElementById("challengeTitle").innerText = `${difficulty.charAt(0).toUpperCase() + difficulty.slice(1)} Challenge`;
+
+    // Ładujemy odpowiednie wyzwania
+    loadChallenges(language, difficulty);
 
     // Ukrycie sekcji wyboru i wyświetlenie sekcji z wyzwaniem
     document.getElementById("selection").style.display = "none";
@@ -27,6 +46,23 @@ function startChallenge() {
             editor.getSession().setMode("ace/mode/java");
             break;
     }
+}
+
+// Funkcja ładowania wyzwań na podstawie wybranego języka i poziomu
+function loadChallenges(language, difficulty) {
+    const selectedChallenges = challenges[language][difficulty];
+    let challengeHtml = '';
+    
+    selectedChallenges.forEach(challenge => {
+        challengeHtml += `
+            <div class="challenge-card">
+                <h3>${challenge.title}</h3>
+                <p>${challenge.description}</p>
+            </div>
+        `;
+    });
+
+    document.getElementById('rankingTable').innerHTML = challengeHtml;
 }
 
 // Funkcja do uruchomienia kodu użytkownika (backendowa część nie została tu uwzględniona)
