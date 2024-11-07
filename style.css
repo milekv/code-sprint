@@ -165,6 +165,18 @@ footer {
     font-size: 24px;
     margin-bottom: 20px;
 }
+.author-link {
+    color: #ecf0f1;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.author-link:hover {
+    color: #3498db; /* Change color on hover */
+}
+
 
 /* Result */
 #result {
