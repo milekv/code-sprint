@@ -7,18 +7,13 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(45deg, #333, #fff);
+    background: linear-gradient(135deg, #2c3e50, #34495e); /* Ciemny gradient */
     color: #ecf0f1; /* Jasny kolor tekstu */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    transition: background 0.5s ease-in-out;
-}
-
-body:hover {
-    background: linear-gradient(45deg, #666, #ccc);
 }
 
 header {
@@ -37,6 +32,7 @@ header h1 {
     font-weight: 600;
     color: #ecf0f1;
     text-transform: uppercase;
+    text-align: center;
     letter-spacing: 5px;
 }
 
@@ -78,17 +74,6 @@ main {
     width: 100%;
 }
 
-#selection, #challenge {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.6);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    width: 100%;
-}
-
 #selection {
     margin-bottom: 30px;
 }
@@ -100,7 +85,6 @@ select, button {
     border-radius: 8px;
     border: none;
     transition: all 0.3s ease;
-    width: 80%; /* Makes select and button fill container */
 }
 
 select {
@@ -133,11 +117,10 @@ button:active {
 }
 
 #code-editor {
-    width: 80%;
-    height: 200px;
-    margin-bottom: 20px;
-    resize: none;
+    width: 100%;
+    height: 300px;
     background-color: #34495e; /* Ciemniejsze tło dla edytora */
+    margin-top: 30px;
     border-radius: 8px;
     border: 1px solid #2c3e50;
     color: #ecf0f1;
@@ -159,27 +142,4 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-}
-
-#challenge-title {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-.author-link {
-    color: #ecf0f1;
-    font-size: 1rem;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.author-link:hover {
-    color: #3498db; /* Change color on hover */
-}
-
-
-/* Result */
-#result {
-    font-size: 18px;
-    margin-top: 10px;
 }
