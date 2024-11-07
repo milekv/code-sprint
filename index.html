@@ -5,39 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodeSprint - Wyzwania Programistyczne</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
 </head>
 <body>
     <header>
-        <div class="header-content">
-            <h1>CodeSprint</h1>
-            <p>Doskonal swoje umiejętności programistyczne poprzez interaktywne wyzwania!</p>
-        </div>
+        <h1>CodeSprint</h1>
+        <p>Wybierz język i poziom trudności, aby rozpocząć wyzwanie!</p>
     </header>
 
     <main>
-        <section id="challenges">
-            <h2>Wyzwania Programistyczne</h2>
-
-            <div class="challenge-card">
-                <h3>FizzBuzz Challenge</h3>
-                <p>Stwórz funkcję, która wypisuje liczby od 1 do 100...</p>
-                <div class="editor-container">
-                    <div id="editor-1" class="editor"></div>
-                    <button onclick="runCode(1)">Uruchom kod</button>
-                    <pre id="output-1"></pre>
-                </div>
+        <section id="selection">
+            <div>
+                <label for="language">Wybierz język programowania:</label>
+                <select id="language">
+                    <option value="javascript">JavaScript</option>
+                    <option value="python">Python</option>
+                    <option value="java">Java</option>
+                </select>
             </div>
 
-            <div class="challenge-card">
-                <h3>Palindrome Checker</h3>
-                <p>Sprawdź, czy wprowadzony ciąg znaków jest palindromem.</p>
-                <div class="editor-container">
-                    <div id="editor-2" class="editor"></div>
-                    <button onclick="runCode(2)">Uruchom kod</button>
-                    <pre id="output-2"></pre>
-                </div>
+            <div>
+                <label for="difficulty">Wybierz poziom trudności:</label>
+                <select id="difficulty">
+                    <option value="junior">Junior</option>
+                    <option value="mid">Mid</option>
+                    <option value="senior">Senior</option>
+                </select>
             </div>
+
+            <button onclick="startChallenge()">Rozpocznij wyzwanie</button>
+        </section>
+
+        <section id="challenge" style="display:none;">
+            <h2>Wyzwanie: <span id="challengeTitle"></span></h2>
+            <div id="editorContainer">
+                <div id="editor"></div>
+            </div>
+            <button onclick="runCode()">Uruchom kod</button>
+            <pre id="output"></pre>
         </section>
     </main>
 
@@ -48,4 +52,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
