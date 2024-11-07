@@ -18,6 +18,35 @@ const challenges = {
         ]
     }
 };
+document.getElementById('start-challenge').addEventListener('click', function() {
+    // Ukrywa sekcję wyboru
+    document.getElementById('selection').style.display = 'none';
+    
+    // Pokazuje sekcję wyzwania
+    document.getElementById('challenge').style.display = 'block';
+    
+    // Opcjonalnie: Załaduj zadanie (przykład z losowaniem)
+    loadRandomChallenge();
+});
+
+// Funkcja losująca wyzwanie
+function loadRandomChallenge() {
+    const language = document.getElementById('language-select').value;
+    const level = document.getElementById('level-select').value;
+
+    fetch('tasks.json')
+        .then(response => response.json())
+        .then(tasks => {
+            const challenges = tasks[language][level];
+            const randomIndex = Math.floor(Math.random() * challenges.length);
+            const task = challenges[randomIndex];
+            
+            document.getElementById('challenge-title').innerText = task.title;
+            document.getElementById('challenge-description').innerText = task.description;
+        })
+        .catch(error => console.error('Błąd:', error));
+}
+
 // Funkcja losująca zadanie na podstawie języka i poziomu
 function getRandomChallenge(language, level) {
     fetch('tasks.json')
