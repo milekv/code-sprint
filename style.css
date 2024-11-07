@@ -30,13 +30,50 @@ header {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
+/* Stylizacja dla logo */
 header h1 {
-    font-size: 4rem;
+    font-family: 'Poppins', sans-serif; /* Używamy czcionki Poppins */
+    font-size: 3rem;
+    font-weight: 600;
     color: #ecf0f1;
-    letter-spacing: 2px;
     text-transform: uppercase;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    letter-spacing: 5px;
+    margin: 20px 0;
 }
+
+/* Stylizacja linku - logo */
+header .logo {
+    color: #ecf0f1;
+    text-decoration: none;
+    position: relative;
+    padding: 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+header .logo:hover {
+    color: #1abc9c; /* Zmiana koloru na akcentowy */
+    transform: scale(1.1); /* Powiększenie przy najechaniu */
+}
+
+header .logo::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 2px;
+    background-color: #1abc9c;
+    opacity: 0;
+    transform: scaleX(0);
+    transition: all 0.3s ease;
+}
+
+header .logo:hover::before {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
 
 header p {
     font-size: 1.2rem;
