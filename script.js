@@ -18,6 +18,19 @@ const challenges = {
         ]
     }
 };
+// Funkcja losująca zadanie na podstawie języka i poziomu
+function getRandomChallenge(language, level) {
+    fetch('tasks.json')
+        .then(response => response.json())
+        .then(tasks => {
+            const challenges = tasks[language][level];
+            const randomIndex = Math.floor(Math.random() * challenges.length);
+            const task = challenges[randomIndex];
+            document.getElementById('challenge-title').innerText = task.title;
+            document.getElementById('challenge-description').innerText = task.description;
+        })
+        .catch(error => console.error('Błąd:', error));
+}
 
 // Funkcja, która uruchamia odpowiednie wyzwanie
 function startChallenge() {
