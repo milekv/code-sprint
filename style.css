@@ -8,7 +8,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #2c3e50, #34495e); /* Ciemny gradient */
-    color: white;
+    color: #ecf0f1; /* Jasny kolor tekstu */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -17,8 +17,8 @@ body {
 }
 
 header {
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 50px 20px;
+    background-color: rgba(0, 0, 0, 0.8); /* Ciemniejsze tło nagłówka */
+    padding: 30px 20px;
     text-align: center;
     width: 100%;
     position: fixed;
@@ -45,7 +45,7 @@ header .logo {
 }
 
 header .logo:hover {
-    color: #1abc9c;
+    color: #3498db; /* Delikatny niebieski kolor przy hover */
     transform: scale(1.1);
 }
 
@@ -56,7 +56,7 @@ header .logo::before {
     right: 0;
     bottom: -5px;
     height: 2px;
-    background-color: #1abc9c;
+    background-color: #3498db;
     opacity: 0;
     transform: scaleX(0);
     transition: all 0.3s ease;
@@ -72,7 +72,6 @@ main {
     padding: 50px;
     text-align: center;
     width: 100%;
-    height: 100%;
 }
 
 #selection {
@@ -89,19 +88,20 @@ select, button {
 }
 
 select {
-    background-color: #34495e;
-    color: white;
+    background-color: #34495e; /* Ciemniejsze tło dla select */
+    color: #ecf0f1;
 }
 
 button {
-    background-color: #3498db;
+    background-color: #3498db; /* Jasny niebieski */
     color: white;
     cursor: pointer;
     font-weight: bold;
+    border-radius: 8px;
 }
 
 button:hover {
-    background-color: #2980b9;
+    background-color: #2980b9; /* Zmiana koloru przy hover */
     transform: translateY(-5px);
 }
 
@@ -119,11 +119,11 @@ button:active {
 #code-editor {
     width: 100%;
     height: 300px;
-    background-color: #2e3b47;
+    background-color: #34495e; /* Ciemniejsze tło dla edytora */
     margin-top: 30px;
     border-radius: 8px;
-    border: 1px solid #34495e;
-    color: white;
+    border: 1px solid #2c3e50;
+    color: #ecf0f1;
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -131,7 +131,7 @@ button:active {
     margin-top: 20px;
     font-size: 1.2rem;
     font-family: 'Courier New', Courier, monospace;
-    color: #1abc9c;
+    color: #1abc9c; /* Zielony kolor dla wyniku */
 }
 
 footer {
