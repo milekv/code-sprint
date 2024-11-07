@@ -13,11 +13,13 @@
     </header>
 
     <main>
-        <div id="selection">
+        <section id="selection">
+            <h2>Wybierz język programowania i poziom trudności</h2>
             <select id="language-select">
                 <option value="python">Python</option>
                 <option value="javascript">JavaScript</option>
-                <!-- Możesz dodać więcej języków -->
+                <option value="java">Java</option>
+                <option value="c++">C++</option>
             </select>
 
             <select id="level-select">
@@ -27,15 +29,15 @@
             </select>
 
             <button id="start-challenge">Rozpocznij wyzwanie</button>
-        </div>
+        </section>
 
-        <div id="challenge">
+        <section id="challenge" class="hidden">
             <h2 id="challenge-title">Wybierz zadanie</h2>
             <p id="challenge-description">Wybierz zadanie, aby zacząć rozwiązywać.</p>
             <textarea id="code-editor" placeholder="Wpisz swój kod tutaj..."></textarea>
             <button id="run-challenge">Uruchom kod</button>
             <div id="result"></div>
-        </div>
+        </section>
     </main>
 
     <footer>
