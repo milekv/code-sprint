@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #2c3e50, #34495e); /* Ciemny gradient */
+    background: linear-gradient(135deg, #2c3e50, #34495e, #1abc9c); /* Ciemny gradient z akcentem */
     color: white;
     min-height: 100vh;
     display: flex;
@@ -19,27 +19,30 @@ body {
 
 /* Nagłówek */
 header {
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 50px 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 40px 20px;
     text-align: center;
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 header h1 {
-    font-size: 3.5rem;
+    font-size: 4rem;
     color: #ecf0f1;
     letter-spacing: 2px;
     text-transform: uppercase;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 header p {
     font-size: 1.2rem;
     color: #ecf0f1;
     margin-top: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 /* Główna sekcja */
@@ -49,12 +52,10 @@ main {
     text-align: center;
     width: 100%;
     height: 100%;
+    animation: fadeIn 1s ease-out;
 }
 
-#selection {
-    margin-bottom: 30px;
-}
-
+/* Select i button */
 select, button {
     font-size: 1.2rem;
     padding: 12px 20px;
@@ -67,6 +68,8 @@ select, button {
 select {
     background-color: #34495e;
     color: white;
+    border: 1px solid #1abc9c;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 button {
@@ -74,6 +77,7 @@ button {
     color: white;
     cursor: pointer;
     font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 button:hover {
@@ -91,6 +95,9 @@ button:active {
     width: 100%;
     padding: 20px;
     text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 #editor {
@@ -142,6 +149,7 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 /* Animacje */
@@ -150,6 +158,11 @@ footer {
     100% { opacity: 1; }
 }
 
+/* Animacje dla elementów */
 main, #challenge, footer {
+    animation: fadeIn 1s ease-out;
+}
+
+#ranking th, #ranking td {
     animation: fadeIn 1s ease-out;
 }
