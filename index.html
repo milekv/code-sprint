@@ -4,45 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodeSprint</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1><a href="index.html" class="logo">CodeSprint</a></h1>
-    </header>
-
-    <main>
-        <section id="selection">
-            <h2>Wybierz język programowania i poziom trudności</h2>
-            <select id="language-select">
-                <option value="python">Python</option>
-                <option value="javascript">JavaScript</option>
-                <option value="java">Java</option>
-                <option value="c++">C++</option>
-            </select>
-
-            <select id="level-select">
-                <option value="junior">Junior</option>
-                <option value="mid">Mid</option>
-                <option value="senior">Senior</option>
-            </select>
-
-            <button id="start-challenge">Rozpocznij wyzwanie</button>
-        </section>
-
-        <section id="challenge" class="hidden">
-            <h2 id="challenge-title">Wybierz zadanie</h2>
-            <p id="challenge-description">Wybierz zadanie, aby zacząć rozwiązywać.</p>
-            <textarea id="code-editor" placeholder="Wpisz swój kod tutaj..."></textarea>
-            <button id="run-challenge">Uruchom kod</button>
-            <div id="result"></div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 CodeSprint</p>
-    </footer>
+    <div id="selection">
+        <select id="language-select">
+            <option value="python">Python</option>
+            <option value="javascript">JavaScript</option>
+        </select>
+        <select id="level-select">
+            <option value="junior">Junior</option>
+            <option value="mid">Mid</option>
+            <option value="senior">Senior</option>
+        </select>
+        <button id="start-challenge">Rozpocznij wyzwanie</button>
+    </div>
+    
+    <section id="challenge" class="hidden">
+        <h2 id="challenge-title">Wybierz zadanie</h2>
+        <p id="challenge-description">Wybierz zadanie, aby zacząć rozwiązywać.</p>
+        <textarea id="code-editor" placeholder="Wpisz swój kod tutaj..."></textarea>
+        <button id="run-challenge">Uruchom kod</button>
+        <div id="result"></div>
+    </section>
 
     <script src="script.js"></script>
 </body>
