@@ -1,123 +1,67 @@
-// Inicjalizacja edytora kodu (użyjemy Ace Editor)
-const editor = ace.edit("editor");
-editor.setTheme("ace/theme/monokai");
-editor.getSession().setMode("ace/mode/javascript"); // Domyślnie ustawiamy na JavaScript
-
-// Obiekty wyzwań
-const challenges = {
-    javascript: {
-        junior: [
-            { title: "FizzBuzz", description: "Wypisz liczby od 1 do 100." },
-            { title: "Palindrome", description: "Sprawdź, czy ciąg jest palindromem." }
+// Przykładowe zadania w formacie JSON
+const tasks = {
+    "python": {
+        "junior": [
+            {
+                "title": "Zadanie 1",
+                "description": "Napisz program, który obliczy sumę dwóch liczb.",
+                "solution": "def sum_two_numbers(a, b):\n    return a + b"
+            },
+            {
+                "title": "Zadanie 2",
+                "description": "Napisz program, który zwróci największy element w tablicy.",
+                "solution": "def max_in_list(lst):\n    return max(lst)"
+            }
         ],
-        mid: [
-            { title: "Sum of Squares", description: "Oblicz sumę kwadratów liczb." }
-        ],
-        senior: [
-            { title: "Prime Numbers", description: "Znajdź liczby pierwsze do 1000." }
+        "mid": [
+            {
+                "title": "Zadanie 3",
+                "description": "Napisz funkcję, która odwróci łańcuch znaków.",
+                "solution": "def reverse_string(s):\n    return s[::-1]"
+            }
+        ]
+    },
+    "javascript": {
+        "junior": [
+            {
+                "title": "Zadanie 1",
+                "description": "Napisz funkcję, która obliczy sumę dwóch liczb.",
+                "solution": "function sumTwoNumbers(a, b) {\n    return a + b;\n}"
+            }
         ]
     }
 };
-document.getElementById('start-challenge').addEventListener('click', function() {
-    // Ukrywa sekcję wyboru
-    document.getElementById('selection').style.display = 'none';
-    
-    // Pokazuje sekcję wyzwania
-    document.getElementById('challenge').style.display = 'block';
-    
-    // Opcjonalnie: Załaduj zadanie (przykład z losowaniem)
-    loadRandomChallenge();
-});
 
-// Funkcja losująca wyzwanie
-function loadRandomChallenge() {
+// Funkcja losująca zadanie
+document.getElementById('start-challenge').addEventListener('click', function() {
     const language = document.getElementById('language-select').value;
     const level = document.getElementById('level-select').value;
+    const challenges = tasks[language][level];
+    const randomIndex = Math.floor(Math.random() * challenges.length);
+    const task = challenges[randomIndex];
 
-    fetch('tasks.json')
-        .then(response => response.json())
-        .then(tasks => {
-            const challenges = tasks[language][level];
-            const randomIndex = Math.floor(Math.random() * challenges.length);
-            const task = challenges[randomIndex];
-            
-            document.getElementById('challenge-title').innerText = task.title;
-            document.getElementById('challenge-description').innerText = task.description;
-        })
-        .catch(error => console.error('Błąd:', error));
-}
+    // Wyświetlenie tytułu i opisu zadania
+    document.getElementById('challenge-title').innerText = task.title;
+    document.getElementById('challenge-description').innerText = task.description;
 
-// Funkcja losująca zadanie na podstawie języka i poziomu
-function getRandomChallenge(language, level) {
-    fetch('tasks.json')
-        .then(response => response.json())
-        .then(tasks => {
-            const challenges = tasks[language][level];
-            const randomIndex = Math.floor(Math.random() * challenges.length);
-            const task = challenges[randomIndex];
-            document.getElementById('challenge-title').innerText = task.title;
-            document.getElementById('challenge-description').innerText = task.description;
-        })
-        .catch(error => console.error('Błąd:', error));
-}
+    // Ukrycie sekcji wyboru i pokazanie sekcji z wyzwaniem
+    document.getElementById('selection').style.display = 'none';
+    document.getElementById('challenge').style.display = 'block';
+});
 
-// Funkcja, która uruchamia odpowiednie wyzwanie
-function startChallenge() {
-    const language = document.getElementById("language").value;
-    const difficulty = document.getElementById("difficulty").value;
+// Funkcja uruchamiająca kod i sprawdzająca wynik
+document.getElementById('run-challenge').addEventListener('click', function() {
+    const userCode = document.getElementById('code-editor').value;
+    const language = document.getElementById('language-select').value;
+    const level = document.getElementById('level-select').value;
+    const challenges = tasks[language][level];
+    const task = challenges.find(t => t.title === document.getElementById('challenge-title').innerText);
+    const correctSolution = task.solution;
 
-    // Zmieniamy wygląd i treść w zależności od wyboru
-    document.getElementById("challengeTitle").innerText = `${difficulty.charAt(0).toUpperCase() + difficulty.slice(1)} Challenge`;
-
-    // Ładujemy odpowiednie wyzwania
-    loadChallenges(language, difficulty);
-
-    // Ukrycie sekcji wyboru i wyświetlenie sekcji z wyzwaniem
-    document.getElementById("selection").style.display = "none";
-    document.getElementById("challenge").style.display = "block";
-
-    // Zmiana trybu edytora w zależności od języka
-    switch (language) {
-        case "javascript":
-            editor.getSession().setMode("ace/mode/javascript");
-            break;
-        case "python":
-            editor.getSession().setMode("ace/mode/python");
-            break;
-        case "java":
-            editor.getSession().setMode("ace/mode/java");
-            break;
+    // Sprawdzenie rozwiązania (proste porównanie)
+    if (userCode.trim() === correctSolution.trim()) {
+        document.getElementById('result').innerText = 'Brawo! Twój kod jest poprawny!';
+    } else {
+        document.getElementById('result').innerText = 'Kod jest niepoprawny. Spróbuj ponownie.';
     }
-}
-
-// Funkcja ładowania wyzwań na podstawie wybranego języka i poziomu
-function loadChallenges(language, difficulty) {
-    const selectedChallenges = challenges[language][difficulty];
-    let challengeHtml = '';
-    
-    selectedChallenges.forEach(challenge => {
-        challengeHtml += `
-            <div class="challenge-card">
-                <h3>${challenge.title}</h3>
-                <p>${challenge.description}</p>
-            </div>
-        `;
-    });
-
-    document.getElementById('rankingTable').innerHTML = challengeHtml;
-}
-
-// Funkcja do uruchomienia kodu użytkownika (backendowa część nie została tu uwzględniona)
-function runCode() {
-    const userCode = editor.getValue();
-    const output = document.getElementById("output");
-
-    try {
-        const result = eval(userCode);  // Uwaga: eval jest niebezpieczny w produkcji, użyj w backendzie!
-        output.textContent = 'Wynik: ' + result;
-        output.style.color = 'green';
-    } catch (error) {
-        output.textContent = 'Błąd: ' + error;
-        output.style.color = 'red';
-    }
-}
+});
