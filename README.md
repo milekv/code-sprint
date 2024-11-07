@@ -1,2 +1,18 @@
-# CodeSprint
-CodeSprint is a web platform that helps developers improve coding skills with AI-generated challenges. Users choose a programming language and difficulty (Junior, Mid, Senior), then solve tasks directly in the browser. It's an interactive way to practice coding and track progress.
+# CodeSprint: Ścieżka do mistrzowskiego kodowania
+
+**Czym jest CodeSprint?**
+CodeSprint to dynamiczna platforma internetowa, która umożliwia programistom doskonalenie swoich umiejętności poprzez, generowane przez sztuczną inteligencję wyzwania.
+
+**Jak to działa?**
+1. **Wybierz swoją ścieżkę:** Wybierz preferowany język programowania i poziom zaawansowania (Junior, Mid, Senior).
+2. **Podejmij wyzwanie:** Rozwiązuj zadania programistyczne bezpośrednio w przeglądarce.
+3. **Śledź swoje postępy:** Monitoruj swoje wyniki i identyfikuj obszary do poprawy.
+
+**Dlaczego CodeSprint?**
+* **Interaktywna nauka:** Praktyka w rzeczywistym środowisku programistycznym.
+* **Spersonalizowane wyzwania:** Zadania dostosowane do Twojego poziomu umiejętności.
+* **Natychmiastowa informacja zwrotna:** Otrzymuj natychmiastową ocenę i wskazówki.
+* **Społeczność i współpraca:** Łącz się z innymi programistami i dziel się wiedzą.
+
+**W trakcie rozwoju**
+Chociaż aktywnie pracujemy nad pełną wersją CodeSprint, zapraszamy Cię do śledzenia naszych aktualizacji ;)
