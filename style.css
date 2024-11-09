@@ -1,4 +1,3 @@
-/* Globalne style */
 * {
     margin: 0;
     padding: 0;
@@ -7,8 +6,8 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #2c3e50, #34495e); /* Ciemny gradient */
-    color: #ecf0f1; /* Jasny kolor tekstu */
+    background: linear-gradient(135deg, #2c3e50, #34495e); 
+    color: #ecf0f1; 
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -17,7 +16,7 @@ body {
 }
 
 header {
-    background-color: rgba(0, 0, 0, 0.8); /* Ciemniejsze tło nagłówka */
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 30px 20px;
     text-align: center;
     width: 100%;
@@ -45,7 +44,7 @@ header .logo {
 }
 
 header .logo:hover {
-    color: #3498db; /* Delikatny niebieski kolor przy hover */
+    color: #3498db;
     transform: scale(1.1);
 }
 
@@ -88,12 +87,12 @@ select, button {
 }
 
 select {
-    background-color: #34495e; /* Ciemniejsze tło dla select */
+    background-color: #34495e; 
     color: #ecf0f1;
 }
 
 button {
-    background-color: #3498db; /* Jasny niebieski */
+    background-color: #3498db; 
     color: white;
     cursor: pointer;
     font-weight: bold;
@@ -101,7 +100,7 @@ button {
 }
 
 button:hover {
-    background-color: #2980b9; /* Zmiana koloru przy hover */
+    background-color: #2980b9; 
     transform: translateY(-5px);
 }
 
@@ -119,7 +118,7 @@ button:active {
 #code-editor {
     width: 100%;
     height: 300px;
-    background-color: #34495e; /* Ciemniejsze tło dla edytora */
+    background-color: #34495e; 
     margin-top: 30px;
     border-radius: 8px;
     border: 1px solid #2c3e50;
@@ -131,7 +130,7 @@ button:active {
     margin-top: 20px;
     font-size: 1.2rem;
     font-family: 'Courier New', Courier, monospace;
-    color: #1abc9c; /* Zielony kolor dla wyniku */
+    color: #1abc9c; 
 }
 
 footer {
