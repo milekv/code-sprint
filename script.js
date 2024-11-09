@@ -1,4 +1,3 @@
-// Example task data (your tasks JSON)
 const tasks = {
   "python": {
     "junior": [
@@ -90,35 +89,31 @@ const tasks = {
   }
 };
 
-// Funkcja losująca zadanie
 document.getElementById('start-challenge').addEventListener('click', function() {
     const language = document.getElementById('language-select').value;
     const level = document.getElementById('level-select').value;
     const challenges = tasks[language][level];
 
-    // Losowanie zadania
+  //naprawic funklcje !Q! ((przycisk od grania nie wywoluje funkcji))
     const randomIndex = Math.floor(Math.random() * challenges.length);
     const task = challenges[randomIndex];
 
-    // Wyświetlenie tytułu i opisu zadania
+   
     document.getElementById('challenge-title').innerText = task.title;
     document.getElementById('challenge-description').innerText = task.description;
 
-    // Ukrycie sekcji wyboru i pokazanie sekcji z wyzwaniem
     document.getElementById('selection').style.display = 'none';
     document.getElementById('challenge').style.display = 'block';
 });
 
-// Funkcja uruchamiająca kod i sprawdzająca wynik
 document.getElementById('run-challenge').addEventListener('click', function() {
     const userCode = document.getElementById('code-editor').value;
     const language = document.getElementById('language-select').value;
     const level = document.getElementById('level-select').value;
     const challenges = tasks[language][level];
     const task = challenges.find(t => t.title === document.getElementById('challenge-title').innerText);
-    const correctSolution = task.solution || ''; // Add your predefined solution code for comparison if necessary
+    const correctSolution = task.solution || '';
 
-    // Proste porównanie rozwiązania
     if (userCode.trim() === correctSolution.trim()) {
         document.getElementById('result').innerText = 'Brawo! Twój kod jest poprawny!';
     } else {
