@@ -1,4 +1,4 @@
-# CodeSprint: Ścieżka do mistrzowskiego kodowania
+  # CodeSprint: Ścieżka do mistrzowskiego kodowania [STRONA W BUDOWIE]
 
 **Czym jest CodeSprint?**
 CodeSprint to dynamiczna platforma internetowa, która umożliwia programistom doskonalenie swoich umiejętności poprzez, generowane przez sztuczną inteligencję wyzwania.
