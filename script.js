@@ -205,8 +205,8 @@ document.getElementById('run-challenge').addEventListener('click', function() {
   const correctSolution = task.solution || '';
 
   if (userCode.trim() === correctSolution.trim()) {
-    document.getElementById('result').innerText = 'Brawo! Twój kod jest poprawny!';
+    document.getElementById('result').innerText = 'Gratulacje! Twój kod jest poprawny! SIGMA';
   } else {
-    document.getElementById('result').innerText = 'Kod jest niepoprawny. Spróbuj ponownie.';
+    document.getElementById('result').innerText = 'Niestety ale twój kod jest błędny, popraw go i spróbuj jeszcze raz ;)';
   }
 });
