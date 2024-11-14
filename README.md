@@ -15,4 +15,4 @@ CodeSprint to dynamiczna platforma internetowa, która umożliwia programistom d
 * **Społeczność i współpraca:** Łącz się z innymi programistami i dziel się wiedzą.
 
 **W trakcie rozwoju**
-Chociaż aktywnie pracujemy nad pełną wersją <a href="https://milekv.github.io/code-sprint/" target="_blank">CodeSprint</a></p>, zapraszam Cię do wypróbowania strony ;) 
+Chociaż aktywnie pracuje nad pełną wersją <a href="https://milekv.github.io/code-sprint/" target="_blank">CodeSprint</a>, zapraszam Cię do wypróbowania strony ;) 
