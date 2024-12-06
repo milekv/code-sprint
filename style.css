@@ -56,9 +56,9 @@ header .logo::before {
     bottom: -5px;
     height: 2px;
     background-color: #3498db;
-    opacity: 0;
     transform: scaleX(0);
     transition: all 0.3s ease;
+    opacity: 0;
 }
 
 header .logo:hover::before {
@@ -72,11 +72,6 @@ main {
     text-align: center;
     width: 100%;
 }
-
-#selection {
-    margin-bottom: 30px;
-}
-
 select, button {
     font-size: 1.2rem;
     padding: 12px 20px;
@@ -85,7 +80,9 @@ select, button {
     border: none;
     transition: all 0.3s ease;
 }
-
+#selection {
+    margin-bottom: 30px;
+}
 select {
     background-color: #34495e; 
     color: #ecf0f1;
